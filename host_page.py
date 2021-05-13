@@ -17,6 +17,7 @@ async def greet_user(request: web.Request) -> web.Response:
         request,
         context=context
     )
+    print("In Index")
     return response
 
 
@@ -28,14 +29,17 @@ async def show_present(request: web.Request) -> web.Response:
         request,
         context=context
     )
+    print("In Run")
     return response
 
 
 @router.get('/homepage/payload')
 async def get_payload(request: web.Request) -> web.Response:
+    print("in payload")
     with open("secrets.json") as json_file:
         jjj = json.load(json_file)
         secret = jjj["github-secret"]
+    print("Got secret")
     assert request.content_length < 1000000, "Request content too fat"  # 1M
     digest, signature = request.headers['X-HUB-SIGNATURE'].split("=", 1)
     assert digest == "sha1", "Digest must be sha1"  # use a whitelist
