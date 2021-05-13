@@ -9,18 +9,6 @@ import jinja2
 router = web.RouteTableDef()
 
 
-@router.get('/')
-async def greet_user(request: web.Request) -> web.Response:
-    context = {}
-    response = aiohttp_jinja2.render_template(
-        "base.html",
-        request,
-        context=context
-    )
-    print("In Index")
-    return response
-
-
 @router.get('/run')
 async def show_present(request: web.Request) -> web.Response:
     context = {}
@@ -33,8 +21,7 @@ async def show_present(request: web.Request) -> web.Response:
     return response
 
 
-@router.get('/payload')
-@router.get('/homepage/payload')
+@router.get('/')
 async def get_payload(request: web.Request) -> web.Response:
     print("in payload")
     with open("secrets.json") as json_file:
