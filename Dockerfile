@@ -4,4 +4,4 @@ RUN pip install gunicorn
 RUN pip install -r requirements.txt
 COPY gunicorn.conf.py /
 COPY . /
-CMD [ "gunicorn", "-c", "gunicorn.conf", "host_page:init_app" ]
+CMD [ "gunicorn", "-c", "gunicorn.conf.py", "host_page:init_app" ]
