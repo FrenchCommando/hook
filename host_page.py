@@ -33,6 +33,7 @@ async def show_present(request: web.Request) -> web.Response:
     return response
 
 
+@router.get('/payload')
 @router.get('/homepage/payload')
 async def get_payload(request: web.Request) -> web.Response:
     print("in payload")
