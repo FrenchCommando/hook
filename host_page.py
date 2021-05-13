@@ -21,7 +21,7 @@ async def show_present(request: web.Request) -> web.Response:
     return response
 
 
-@router.get('/')
+@router.get('/homepage')
 async def get_payload(request: web.Request) -> web.Response:
     print("in payload")
     with open("secrets.json") as json_file:
