@@ -35,7 +35,6 @@ async def get_payload(request: web.Request) -> web.Response:
     h = hmac.HMAC(bytes(secret, "UTF8"), msg=body, digestmod=digest)
     assert h.hexdigest() == signature, "Bad signature"
     s_body = body.decode('UTF8')
-    raise ValueError(s_body)
     s = json.loads(s_body)
     print(s)
     return web.Response(text="Success")
