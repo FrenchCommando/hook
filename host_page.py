@@ -38,6 +38,7 @@ async def get_payload(request: web.Request) -> web.Response:
     s_body = body.decode('UTF8')
     s = json.loads(s_body)
     print(s)
+    subprocess.run(["./scripts/homepage.sh"])
     return web.Response(text="Success")
 
 
