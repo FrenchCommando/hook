@@ -4,7 +4,7 @@ from pathlib import Path
 from aiohttp import web
 import aiohttp_jinja2
 import jinja2
-
+import subprocess
 
 router = web.RouteTableDef()
 
@@ -18,6 +18,11 @@ async def show_present(request: web.Request) -> web.Response:
         context=context
     )
     print("In Run")
+    subprocess.run([
+        "git-force-clone",
+        "git@github.com:FrenchCommando/homepage.git",
+        "home/pi/homepage"
+    ])
     return response
 
 
