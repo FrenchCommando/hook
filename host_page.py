@@ -18,11 +18,7 @@ async def show_present(request: web.Request) -> web.Response:
         context=context
     )
     print("In Run")
-    subprocess.run([
-        "git-force-clone",
-        "git@github.com:FrenchCommando/homepage.git",
-        "home/pi/homepage"
-    ])
+    subprocess.run(["./scripts/homepage.sh"])
     return response
 
 
